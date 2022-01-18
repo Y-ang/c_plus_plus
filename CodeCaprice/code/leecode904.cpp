@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<queue>
+#include<set>
 using namespace std;
 
 class Solution {
@@ -9,38 +10,31 @@ public:
         int start = 0;
         int subLength = 0;
         int maxLength = 0;
-        queue<int> subfruits;
+        set<int> subfruits;
         for(int end = 0; end < fruits.size(); end++){
-            insertFruit(fruits[end], subfruits);
-            int tmp = subfruits.front();
+            subfruits.insert(fruits[end]);
             subLength = end - start + 1;
-            maxLength = maxLength > subLength ? maxLength : subLength;
-            if (subfruits.size() == 3){
-                maxLength--;
-                tmp = subfruits.front();
-                subfruits.pop();
-                while(fruits[start] == tmp){
-                    start++;
+            if(subfruits.size() <= 2){
+                maxLength = maxLength > subLength ? maxLength : subLength;
+            }else{
+                // maxLength = maxLength > --subLength ? maxLength : subLength;
+                start = end - 1;
+                int tmp = fruits[start];
+                while(fruits[start - 1] == tmp){
+                    start--;
                 }
+                subfruits.erase(fruits[start - 1]);
             }
-            
-        
         }
         return maxLength;
     }
-    void insertFruit(int target, queue<int>& nums){
-        if(!nums.empty() && (nums.front() == target || nums.back() == target)){
-            return;
-        }
-        nums.push(target);
-        return;
-    }
+    
 };
 
 
 int main(){
     Solution su;
-    vector<int> arr = {0, 1, 2, 2};
+    vector<int> arr = {1,0,1,4,1,4,1,2,3};
     int num = su.totalFruit(arr);
     cout << num;
     return 0;
