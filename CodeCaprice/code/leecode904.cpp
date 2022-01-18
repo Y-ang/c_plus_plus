@@ -16,14 +16,15 @@ public:
             subLength = end - start + 1;
             maxLength = maxLength > subLength ? maxLength : subLength;
             if (subfruits.size() == 3){
+                maxLength--;
                 tmp = subfruits.front();
                 subfruits.pop();
-            }
-            while (subfruits.size() == 3){
                 while(fruits[start] == tmp){
                     start++;
                 }
-            }            
+            }
+            
+        
         }
         return maxLength;
     }
@@ -39,7 +40,7 @@ public:
 
 int main(){
     Solution su;
-    vector<int> arr = {1, 2, 1};
+    vector<int> arr = {0, 1, 2, 2};
     int num = su.totalFruit(arr);
     cout << num;
     return 0;
