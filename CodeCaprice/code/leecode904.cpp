@@ -13,11 +13,10 @@ public:
         set<int> subfruits;
         for(int end = 0; end < fruits.size(); end++){
             subfruits.insert(fruits[end]);
-            subLength = end - start + 1;
             if(subfruits.size() <= 2){
+                subLength = end - start + 1;
                 maxLength = maxLength > subLength ? maxLength : subLength;
             }else{
-                // maxLength = maxLength > --subLength ? maxLength : subLength;
                 start = end - 1;
                 int tmp = fruits[start];
                 while(fruits[start - 1] == tmp){
