@@ -16,7 +16,8 @@ public:
         int cnt = 0;
         int startx=0;
         int starty = 0;
-        int loop = col/2;
+        int width = row <= col ? row : col;
+        int loop = width / 2; //循环次数为较短边的一半
         int offset = 0;
         while(loop--){
             int i,j;
@@ -36,21 +37,20 @@ public:
             startx++;
             starty++;
         }
-        if(row == col && row%2 != 0){
-            res[cnt] = matrix[row/2][row/2];
-        }
-        if(row != col ){
-            for(int i = 0; i < col; i++){
-                res[cnt++] = matrix[0][i];
+        if(width % 2 != 0){
+            if(row > col){
+                for(int i = startx; i <= startx + row - offset - 1; i++){
+                    res[cnt++] = matrix[i][starty];
+                }
+            }else if(row < col){
+                for(int i = startx; i <= startx + col - offset - 1; i++){
+                    res[cnt++] = matrix[startx][i];
+                }
+            }else{
+                res[cnt] = matrix[startx][starty];
             }
-            return res;
         }
-        if(col != col){
-            for(int i = 0; i < row; i++){
-                res[cnt++] = matrix[i][0];
-            }
-            return res;
-        }
+
         return res;
     }
 
@@ -66,7 +66,7 @@ int main(){
     Solution su;
     // vector<int> num = {5,7,7,8,8,10};
     // vector<int> array = su.searchRange(num, 8);
-    vector<vector<int>> matrix_ = {{2,3,4},{5,6,7},{8,9,10},{11,12,13}};
+    vector<vector<int>> matrix_ = {{1, 2, 3, 4}, {4, 5, 6, 4}, {3, 4, 3, 6}};
     vector<int> array = su.spiralOrder(matrix_);
     su.printNums(array);
     return 0;
