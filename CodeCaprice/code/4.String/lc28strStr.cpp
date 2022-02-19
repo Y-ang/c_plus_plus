@@ -10,27 +10,22 @@ public:
         if (needle == "") {
             return 0;
         }
-        int start = -1;
-
-        for (int i = 0; i < haystack.size(); i++) {
-        
-            int hsIndex = i;
-            int ndIndex = 0;
-            start = i;
-            while (hsIndex < haystack.size() && ndIndex < needle.size()) {
-                if (haystack[hsIndex++] != needle[ndIndex++]) {
-                    start = -1;
+        int hSize = haystack.size();
+        int nSize = needle.size();
+        for (int i = 0; i + nSize <= hSize; i++) {
+            int flag = true;
+            for (int j = 0; j < nSize; j++) {
+                if (haystack[i+j] != needle[j]) {
+                    flag = false;
                     break;
                 }
             }
-            if (start == i && ndIndex != needle.size()) {
-                start = -1;
-            } else if (start == i && ndIndex == needle.size()) {
-                return start;
+            if (flag) {
+                return i;
             }
         }
-        return start;
 
+        return -1;
     }
 };
 
