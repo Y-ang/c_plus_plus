@@ -36,22 +36,47 @@ struct TreeNode {
 //     }
 // };
 
+// class Solution {
+// public:
+//     vector<int> inorderTraversal(TreeNode* root) {
+//         if (root == nullptr) return {};
+//         stack<TreeNode*> st;
+//         vector<int> res;
+
+//         while (!st.empty() || root != nullptr) {
+//             while (root != nullptr) {
+//                 st.push(root);
+//                 root = root->left;
+//             }
+//             root = st.top();
+//             res.push_back(root->val);
+//             st.pop();
+//             root = root->right;
+//         }
+//         return res;
+//     }
+// };
+
+// 方法三: 统一的迭代法
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
-        if (root == nullptr) return {};
         stack<TreeNode*> st;
         vector<int> res;
-
-        while (!st.empty() || root != nullptr) {
-            while (root != nullptr) {
-                st.push(root);
-                root = root->left;
-            }
-            root = st.top();
-            res.push_back(root->val);
+        if (root == nullptr) return {};
+        st.push(root);
+        while(!st.empty()) {
+            TreeNode* cur = st.top();
             st.pop();
-            root = root->right;
+            if (cur != nullptr) {
+                if (cur->right) st.push(cur->right);
+                st.push(cur);
+                st.push(nullptr);
+                if (cur->left) st.push(cur->left);
+            } else {
+                res.push_back(st.top()->val);
+                st.pop();
+            }
         }
         return res;
     }

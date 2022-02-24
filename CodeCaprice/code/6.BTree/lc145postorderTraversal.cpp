@@ -32,22 +32,46 @@ struct TreeNode
     TreeNode* right;
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
+// class Solution {
+// public:
+//     vector<int> postorderTraversal(TreeNode* root) {
+//         if (root == nullptr) return {};
+//         stack<TreeNode*> st;
+//         vector<int> res;
+//         st.push(root);
+//         while (!st.empty()) {
+//             TreeNode* cur = st.top();
+//             res.push_back(cur->val);
+//             st.pop();
+//             if (cur->left) st.push(cur->left);
+//             if (cur->right) st.push(cur->right);
+
+//         }
+//         reverse(res.begin(), res.end());
+//         return res;
+//     }
+// };
+
+// 方法3: 统一的迭代方法
 class Solution {
 public:
-    vector<int> postorderTraversal(TreeNode* root) {
-        if (root == nullptr) return {};
+    vector<int> postorderTraversal (TreeNode* root) {
         stack<TreeNode*> st;
         vector<int> res;
-        st.push(root);
+        if (root != nullptr) st.push(root);
         while (!st.empty()) {
             TreeNode* cur = st.top();
-            res.push_back(cur->val);
             st.pop();
-            if (cur->left) st.push(cur->left);
-            if (cur->right) st.push(cur->right);
-
+            if (cur != nullptr) {
+                st.push(cur);
+                st.push(nullptr);
+                if (cur->right) st.push(cur->right);
+                if (cur->left) st.push(cur->left);
+            } else {
+                res.push_back(st.top()->val);
+                st.pop();
+            }
         }
-        reverse(res.begin(), res.end());
         return res;
     }
 };
