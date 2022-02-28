@@ -37,23 +37,22 @@ struct TreeNode
 // };
 
 // 方法二: iteration
-// class Solution {
-// public:
-//     vector<int> preorderTraversal(TreeNode* root) {
-//         if (root == nullptr) return {};
-//         stack<TreeNode*> st;
-//         vector<int> res;
-//         st.push(root);
-//         while (!st.empty()) {
-//             TreeNode* curNode = st.top();
-//             res.push_back(curNode->val);
-//             st.pop();
-//             if (curNode->right) st.push(curNode->right);
-//             if (curNode->left) st.push(curNode->left);
-//         }
-//         return res;
-//     }
-// };
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        stack<TreeNode*> st;
+        vector<int> res;
+        if (root != nullptr) st.push(root);
+        while (!st.empty()) {
+            TreeNode* curNode = st.top();
+            res.push_back(curNode->val);
+            st.pop();
+            if (curNode->right) st.push(curNode->right);
+            if (curNode->left) st.push(curNode->left);
+        }
+        return res;
+    }
+};
 
 // 方法三: 统一的迭代法
 class Solution {
