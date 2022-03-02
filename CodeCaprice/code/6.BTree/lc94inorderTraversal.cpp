@@ -36,26 +36,25 @@ struct TreeNode {
 //     }
 // };
 
-// class Solution {
-// public:
-//     vector<int> inorderTraversal(TreeNode* root) {
-//         if (root == nullptr) return {};
-//         stack<TreeNode*> st;
-//         vector<int> res;
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        stack<TreeNode*> st;
+        vector<int> res;
 
-//         while (!st.empty() || root != nullptr) {
-//             while (root != nullptr) {
-//                 st.push(root);
-//                 root = root->left;
-//             }
-//             root = st.top();
-//             res.push_back(root->val);
-//             st.pop();
-//             root = root->right;
-//         }
-//         return res;
-//     }
-// };
+        while (!st.empty() || root != nullptr) {
+            while (root != nullptr) {
+                st.push(root);
+                root = root->left;
+            }
+            root = st.top();
+            st.pop();
+            res.push_back(root->val);
+            root = root->right;
+        }
+        return res;
+    }
+};
 
 // 方法三: 统一的迭代法
 class Solution {
