@@ -1,7 +1,11 @@
 # 0
-Hi, everyone My name is Jing yang from Huazhong University of Science & Technology in China.  Welcome to my presentation on Isolating Compiler Optimization Faults via Differentiating Finer-grained Options This work is cooperated with Nanjing University,  main advised by Dr.Yibiao Yang and Prof. Ming Wen. 
+Hi, everyone 
+My name is Jing yang from Huazhong University of Science & Technology in China. 
+Welcome to my presentation on Isolating Compiler Optimization Faults via Differentiating Finer-grained Options
+This work is cooperated with Nanjing University,  main advised by Dr.Yibiao Yang and Prof. Ming Wen.
+
 # 1
-First, I’m gonna talk about compiler optimization bugs and the importance of locating them.   
+First, I’m going to talk about compiler optimization bugs and the importance of locating them.   
 
 Compilers are the most fundamental infrastructures in software development.  
 However, being complex software systems, compilers themselves are prone to errors.   
@@ -12,11 +16,11 @@ Optimization bugs can lead to unpredictable errors with the wrong optimization o
 
 Thus, one of the most important tasks for developers is to locate and fix optimization bugs in compilers. 
 Nevertheless, locating compiler bugs is challenging as compilers are one of the largest software systems. 
-Driven by this, it is of significant importance to advance the techniques for locating bugs of compiler optimizations.  
+Driven by this, it is of significant importance to advance the techniques for locating bugs of compiler optimizations. 
 # 2
 Recently, Chen et al. proposed DiWi [2] and RecBi [3] to facilitate compiler bug isolation.
 
-They introduced a novel concept of witness programs,  which are mutated from the bug-triggering test programs of the compiler. 
+They introduced a novel concept of witness test programs,  which are mutated from the bug-triggering test programs of the compiler. 
 A mutated test program is considered as a witness program when it does not trigger any bugs of the compiler.
 
 The witness test programs can be viewed as the passing test programs in the Spectrum-Based Fault Localization (SBFL) techniques 
