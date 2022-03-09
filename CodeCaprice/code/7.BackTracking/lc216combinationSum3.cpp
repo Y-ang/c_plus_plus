@@ -8,12 +8,13 @@ public:
 
     }
     void backtracing(int k, int n, int sum, int startIndex, vector<int> path, vector<vector<int>>& res) {
+        if (path.size() > k || sum > n){
+            return;
+        }
         if (sum == n && path.size() == k) {
             res.push_back(path);
             return;
-        } else if (path.size() > k || sum > n){
-            return;
-        }
+        } 
         for (int i = startIndex; i <= 9 - (k - path.size()) + 1; i++) {
             path.push_back(i);
             backtracing(k, n, sum+i, i+1, path, res);
