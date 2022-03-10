@@ -21,7 +21,7 @@ public:
         }
         // 剪枝
         for (int i = startIndex; i < candidates.size() && sum + candidates[i] <= target; i++) {
-            // 保证每层for循环中，不会遍历到相同的数，不同for循环可能会有相同的数
+            // 保证每层for循环中，不会遍历到相同的数，不同for循环可能会有相同的数，只需要保证每层的第一个数不会被去重去掉就可以，因为后面出现的相同的数需要及时去掉
             if (i != startIndex && candidates[i] == candidates[i - 1]) continue;
             path.push_back(candidates[i]);
             backtracking(i+1, sum + candidates[i], target, candidates, path, res);
