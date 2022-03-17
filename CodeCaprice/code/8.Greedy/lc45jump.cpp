@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// 方法一：找到范围内最远覆盖的点， 下一次就跳到该电上
+// // 方法一：找到范围内最远覆盖的点， 下一次就跳到该电上
 // class Solution {
 // public:
 //     int jump(vector<int>& nums) {
@@ -37,13 +37,12 @@ public:
         int res = 0;
         int nextIndex = 0;
         int curIndex = 0;
-        for (int i = 0; i < nums.size() - 1; i++) {
-            nextIndex = max(i + nums[i], nextIndex); //最远cover
-            if (i == curIndex) {
+        for (int i = 0; i < nums.size() - 1; i++) {  // 最远距离到nums.size() - 2, 因为如果到最远距离就不需要再加一，而到了最远距离的前一个则需要再加一
+            nextIndex = max(i + nums[i], nextIndex); // 下一个坐标的最远cover
+            if (i == curIndex) {                     // 到了现在的最远下标
                 res++;
                 curIndex = nextIndex;
             }
-            // if (nextIndex >= nums.size() - 1) break; // 超过元素范围就退出, 因为次数是从起跳时开始算，当前跳已经能到达终点
         }
         return res;
     }
