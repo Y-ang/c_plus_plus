@@ -14,6 +14,8 @@ public:
             if (intervals[i][0] < preMax) { // 有重叠
                 cnt++;
                 preMax = min(preMax, intervals[i][1]); // 删掉范围大的，保留范围小的
+            } else {
+                preMax = intervals[i][1];    // 无重叠，更新最大范围为当前点的右坐标
             }
         }
         return cnt;
@@ -21,7 +23,8 @@ public:
 };
 
 int main() {
-
-
+    Solution su;
+    vector<vector<int>> nums = {{0,2},{1,3},{2,4},{3,5},{4,6}};
+    su.eraseOverlapIntervals(nums);
     return 0;
 }
