@@ -31,7 +31,7 @@ public:
         for (int i = weight[0]; i <= bagweight; i++) dp[i] = value[0];
         // 滚动遍历一维数组
         for (int i = 1; i < weight.size(); i++) { // 遍历每个物品
-            for (int j = weight[i]; j <= bagweight; j++) {
+            for (int j = bagweight; j <= weight[i]; j--) { // 反向从大到小遍历，防止物品被重复多次拿入
                 dp[j] = max(dp[j], dp[j - weight[i]] + value[i]); // 取或不取i的最大价值
             }
         }
