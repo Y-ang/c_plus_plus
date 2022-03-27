@@ -30,3 +30,23 @@ public:
         }
     }
 };
+
+
+lass Solution {
+public:
+    vector<string> letterCombinations(string digits) {
+        string nums[10] = {
+            "",
+            "",
+            "abc",
+            "def",
+            "ghi",
+            "jkl",
+            "mno",
+            "pqrs",
+            "tuv",
+            "wxyz"
+        }
+    }
+
+};

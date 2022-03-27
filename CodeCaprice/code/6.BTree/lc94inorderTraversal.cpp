@@ -81,3 +81,15 @@ public:
     }
 };
 
+stack<TreeNode*> st;
+vector<int> res;
+while(!st.empty() || root != nullptr) {
+    while(root != nullptr) {
+        st.push(root);
+        root = root->left;
+    }
+    root = st.top();
+    st.pop();
+    res.push_back(root->val);
+    root = root->right;
+}

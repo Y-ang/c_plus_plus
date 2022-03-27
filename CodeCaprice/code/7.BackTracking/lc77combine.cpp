@@ -37,3 +37,25 @@ int main() {
     su.combine(5, 3);
     return 0;
 }
+
+
+
+class Solution {
+public:
+    vector<vector<int>> combine(int n, int k) {
+        vector<vector<int>> res;
+        backtracking(1, n, k, {}, res);
+        return res;
+    }
+    void backtracking(int startIndext, int n, int k, vector<int> path, vector<vector<int>>& res){
+        if (path.size() == k) {
+            res.push_back(path);
+            return;
+        }
+        for (int i = startIndext; i <= n - (k - path.size()) + 1; i++) {  // 剪枝 还需要k-path.size()个元素，所以集合最多只能从n - (k - path.size()) + 1 开始
+            path.push_back(i);
+            backtracking(i + 1, n, k, path, res);
+            path.pop_back();
+        }
+    }
+};

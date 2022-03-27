@@ -12,6 +12,7 @@ public:
             for (int j = 0; j < nums.size(); j++) {
                 if (nums[j] <= i && dp[i] < INT_MAX - dp[i - nums[j]]) {
                     dp[i] += dp[i - nums[j]];
+                    // cout << i << ' ' << dp[i] << endl;
                 }
             }
         }
