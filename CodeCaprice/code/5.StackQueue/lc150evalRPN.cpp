@@ -17,10 +17,9 @@ public:
                 else if (token == "*") res.push(val2 * val1);
             } else {
                 res.push(stoi(token));
-            }
-            
+            }     
         }
-        return res.top();
+        return res.top();  // 返回栈顶计算完的元素
     }
 };
 
