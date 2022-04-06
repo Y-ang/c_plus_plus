@@ -30,3 +30,26 @@ public:
         return res;
     }
 };
+
+
+class Solution {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        vector<vector<int>> res;
+        queue<TreeNode*> que;
+        if (root) que.push(root);
+        while (!que.empty()) {
+            int size = que.size();     // 当前层的节点数
+            vector<int> level(size);  // 保存当前层的节点值
+
+            for (int i = 0; i < size; i++) {
+                TreeNode* cur = que.front();   // 从队列中获取当前层的节点
+                que.pop();
+                level[i] = cur->val;
+                if (cur->left) que.push(cur->left);
+                if (cur->right) que.push(cur->right);
+            }
+            res.push_back(level);
+        }
+        return res;
+    }

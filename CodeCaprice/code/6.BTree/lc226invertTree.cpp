@@ -65,6 +65,18 @@ public:
             if (cur->right) st.push(cur->right);
         }
         return root;
+
+
+        queue<TreeNode*> que;
+        if (root) que.push(root);
+        while (!que.empty()) {
+            TreeNode* cur = que.front();
+            que.pop();
+            swap(cur->left, cur->right);
+            if (cur->left) que.push(cur->left);
+            if (cur->right) que.push(cur->right);
+        }
+        return root;
     }
 
 };

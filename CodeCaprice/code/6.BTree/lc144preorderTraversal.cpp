@@ -20,21 +20,22 @@ struct TreeNode
 //  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 //  * };
 //  */
+
 // 方法一: traversal
-// class Solution {
-// public:
-//     vector<int> preorderTraversal(TreeNode* root) {
-//         vector<int> res;
-//         traverse(root, res);
-//         return res;
-//     }
-//     void traverse(TreeNode* node, vector<int>& res) {
-//         if (node == nullptr) return;
-//         res.push_back(node->val);
-//         traverse(node->left, res);
-//         traverse(node->right, res);
-//     }
-// };
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> res;
+        traverse(root, res);
+        return res;
+    }
+    void traverse(TreeNode* node, vector<int>& res) {
+        if (node == nullptr) return;
+        res.push_back(node->val);
+        traverse(node->left, res);
+        traverse(node->right, res);
+    }
+};
 
 // 方法二: iteration
 class Solution {

@@ -21,20 +21,20 @@ struct TreeNode {
  */
 
 // 方法一: travesal
-// class Solution {
-// public:
-//     vector<int> inorderTraversal(TreeNode* root) {
-//         vector<int> res;
-//         traverse(root, res); 
-//         return res;
-//     }
-//     void traverse(TreeNode* node, vector<int>& res) {
-//         if (node == nullptr) return;
-//         traverse(node->left, res);
-//         res.push_back(node->val);
-//         traverse(node->right, res);
-//     }
-// };
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> res;
+        traverse(root, res); 
+        return res;
+    }
+    void traverse(TreeNode* node, vector<int>& res) {
+        if (node == nullptr) return;
+        traverse(node->left, res);
+        res.push_back(node->val);
+        traverse(node->right, res);
+    }
+};
 
 class Solution {
 public:
