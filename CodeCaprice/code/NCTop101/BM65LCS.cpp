@@ -13,6 +13,8 @@ public:
         // write code here
         vector<vector<int>> dp(s1.size() + 1, vector<int>(s2.size() + 1));
         string str;
+
+        // 计算dp数组，即最长公共子序列的长度
         for (int i = 1; i < s1.size() + 1; i++) {
             for (int j = 1; j < s2.size() + 1; ++j) {
                 if (s1[i - 1] == s2[j - 1]) {
