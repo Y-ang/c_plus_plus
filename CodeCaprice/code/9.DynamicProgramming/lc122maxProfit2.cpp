@@ -26,3 +26,19 @@ public:
         return dp[(prices.size() - 1) % 2][0];
     }
 };
+
+
+// 贪心
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int res = 0;
+        for (int i = 1; i < prices.size(); i++) {
+            int curDiff = prices[i] - prices[i - 1];
+            if (curDiff > 0) {
+                res += curDiff;
+            } 
+        }
+        return res;
+    }
+};

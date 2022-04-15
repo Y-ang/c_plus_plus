@@ -3,20 +3,20 @@ using namespace std;
 
 
 // 贪心
-// class Solution {
-// public:
-//     int maxProfit(vector<int>& prices) {
-//         int minValue = prices[0];
-//         int res = 0;
-//         for (int i = 1; i < prices.size(); i++) {
-//             res = max(res, prices[i] - minValue);
-//             if (prices[i] < minValue){
-//                 minValue = prices[i];
-//             }
-//         }
-//         return res;
-//     }
-// };
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int minValue = prices[0];
+        int res = 0;
+        for (int i = 1; i < prices.size(); i++) {
+            res = max(res, prices[i] - minValue);
+            if (prices[i] < minValue){
+                minValue = prices[i];
+            }
+        }
+        return res;
+    }
+};
 
 
 // 动规
