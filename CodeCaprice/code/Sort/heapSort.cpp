@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// 向下调整：根节点和左右孩子比较，调整以某一节点为根的子树为大根/小根堆; 向下调整需要一个堆大小的边界值以停止循环
+// 向下调整：根节点和左右孩子比较，调整以某一节点为根的子树为大根/小根堆; 向下调整需要一个堆大小的边界值以停止循环 (heapify)
 void adjustDownHeap(vector<int>& nums, int index, int heapSize) {  
     int left = 2 * index + 1;
     while (left < heapSize) {
@@ -15,7 +15,7 @@ void adjustDownHeap(vector<int>& nums, int index, int heapSize) {
         left = 2 * index + 1;
     }
 }
-// 向上调整：该节点与父节点比较，使该节点之间的树为大根/小根堆
+// 向上调整：该节点与父节点比较，使该节点之间的树为大根/小根堆  (insert)
 void adjustUpHeap(vector<int>& nums, int index) {
     while (nums[index] > nums[(index - 1) / 2]) { 
         swap(nums[index], nums[(index - 1) / 2]);

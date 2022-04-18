@@ -27,8 +27,8 @@ void merge(vector<int>& nums, int left, int mid, int right) {
 // 迭代版 每次
 void mergeSort(vector<int>& nums) {
     int size = nums.size();
-    for (int width = 1; width < size; width *= 2) {
-        for (int i = 0; i < nums.size(); i += 2 * width) {
+    for (int width = 1; width < size; width *= 2) {   // 归并两个子序列的宽度
+        for (int i = 0; i < nums.size(); i += 2 * width) { // 子序列的left位置
             merge(nums, i, min(i + width - 1, size - 1), min(i + 2*width - 1, size - 1));
         }
     }
