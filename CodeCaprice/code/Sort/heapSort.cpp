@@ -15,7 +15,7 @@ void adjustDownHeap(vector<int>& nums, int index, int heapSize) {
         left = 2 * index + 1;
     }
 }
-// 向上调整：该节点与父节点比较，使该节点之间的树为大根/小根堆  (insert)
+// 向上调整：该节点与父节点比较，使该节点之间的树为大根/小根堆  (heapInsert)
 void adjustUpHeap(vector<int>& nums, int index) {
     while (nums[index] > nums[(index - 1) / 2]) { 
         swap(nums[index], nums[(index - 1) / 2]);
@@ -28,14 +28,14 @@ void heapSort(vector<int>& nums) {
 
     // 建立大根堆，法一：向上调整
     // O(nlogn) 对每个加入的元素做向上调整
-    for (int i = 0; i < nums.size(); i++) {
-        adjustUpHeap(nums, i);
+    for (int i = 0; i < nums.size(); i++) {  
+        adjustUpHeap(nums, i);  // heapInsert
     }
 
     // 建立大根堆，法二：向下调整
     // // O(n)  已知整个排序数组, 从叶子节点向上对每个节点向下调整
     for (int i = nums.size() - 1; i >= 0; i--) {
-        adjustDownHeap(nums, i, heapSize);  // 从叶子节点开始，逐个向下调整，构建一个大根堆
+        adjustDownHeap(nums, i, heapSize);  // 从叶子节点开始，逐个向下调整，构建一个大根堆  heapify
     }
     
     
