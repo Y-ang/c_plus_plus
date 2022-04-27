@@ -43,6 +43,42 @@ public:
         return memo[row][col];
     }
 };
+
+class Solution {
+public:
+    /**
+     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+     * 递增路径的最大长度
+     * @param matrix int整型vector<vector<>> 描述矩阵的每个数
+     * @return int整型
+     */
+    int dirs[4][2] = {{-1, 0}, {1,0}, {0, -1}, {0, 1}};
+    int solve(vector<vector<int> >& matrix) {
+        vector<vector<int>> memo(matrix.size(), vector<int>(matrix[0].size(), 0));
+        int maxLen = 0;
+        for (int i = 0; i < matrix.size(); ++i) {
+            for (int j = 0; j < matrix[0].size(); ++j) {
+                maxLen = max(maxLen, dfs(i, j, memo, matrix));
+            }
+        }
+        return maxLen;
+    }
+    
+    int dfs(int x, int y, vector<vector<int>>& memo, vector<vector<int>>& matrix) {
+        if (memo[x][y] != 0) return memo[x][y];
+
+        memo[x][y]++;
+        for (int i = 0; i < 4; ++i) {
+            int newx = x + dirs[i][0];
+            int newy = y + dirs[i][1];
+            if (newx < 0 || newx >= matrix.size() || newy < 0 || newy >= matrix[0].size() || matrix[newx][newy] < matrix[x][y])
+                continue;
+            memo[x][y] = max(memo[x][y], dfs(newx, newy, memo, matrix) + 1);
+        }
+        return memo[x][y];
+    }
+    
+};
 // class Solution {
 // public:
 //     /**
