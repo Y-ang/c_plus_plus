@@ -14,7 +14,7 @@ vector<int> partition(vector<int>& nums, int left, int right) {
             left++;
         }
     }
-    swap(nums[more], nums[right]);
+    swap(nums[more++], nums[right]);  // more和right交换，more区向右移一位
     return vector<int>{less, more};
 }
 

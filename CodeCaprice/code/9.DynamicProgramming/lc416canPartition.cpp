@@ -13,7 +13,7 @@ public:
         int weight = sum / 2;
         vector<int> dp(weight + 1, 0);
         // for (int i = nums[0]; i <= weight; i++) dp[i] = nums[0];
-        for (int i = 1; i < nums.size(); i++) { // 可选物品
+        for (int i = 0; i < nums.size(); i++) { // 可选物品
             for (int j = weight; j >= nums[i]; j--) { // 可选物品的重量, 反向遍历，防止物品重复拿入
                 dp[j] = max(dp[j], dp[j - nums[i]] + nums[i]);  // 不选当前值，选当前值
             }

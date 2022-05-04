@@ -17,9 +17,9 @@ public:
         // 方法二：一维数组 空间复杂度O(n)
         // 滚动数组，因为二位数组的第一行第一列都是1，所以一维数组不断从前到后相加，结果相同
         vector<int> dp(n, 1);
-        for (int j = 1; j < m; j++) { // m行
-            for (int i = 1; i < n; i++) { // n列
-                dp[i] += dp[i - 1];
+        for (int i = 1; i < m; i++) { // m行
+            for (int j = 1; j < n; j++) { // n列
+                dp[j] += dp[j - 1];
             }
         }
         return dp[n - 1];

@@ -39,6 +39,19 @@ public:
     }
 };
 
+class Solution {
+public:
+    void bag(vector<int>& weight, vector<int>& value, int bagweight) {
+        vector<int> dp(bagweight + 1, 0);
+        for (int i = 0; i < weight.size(); ++i) {  // 遍历物品
+            for (int j = bagweight; j >= weight[i]; --j) { // 对每个物品，从后向前遍历背包重量，保存能装下的最大价值（从后向前防止物品被重复拿）
+                dp[j] = max(dp[j], dp[j - weight[i]] + value[i]);
+            }
+        }
+        cout << dp[bagweight] << endl;
+    }
+};
+
 
 int main() {
     vector<int> weight = {1, 3, 4};

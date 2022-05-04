@@ -31,7 +31,7 @@ public:
         // -号元素个数之和   
         // pos - neg = target   pos + neg = sum   pos = (target+sum)/2  neg = (sum-target)/2
         // 这里neg和较小，所以取nums中元素，使其和为neg，计算取元素的组合数
-        if (target > sum || (sum - target) % 2 != 0) return 0;
+        if (abs(target) > sum || (sum - target) % 2 != 0) return 0;
         int neg = (sum - target) /2;
         vector<int> dp(neg + 1, 0);  // dp[j] 元素和为j的表达式总数
         dp[0] = 1;
