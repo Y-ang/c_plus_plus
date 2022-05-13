@@ -9,6 +9,7 @@ public:
 };
 
 int main() {
-
+    Solution su;
+    su.solve();
     return 0;
 }
