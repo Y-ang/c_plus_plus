@@ -18,7 +18,7 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe build active file",
-            "command": "D:\\mingw64\\bin\\g++.exe",
+            "command": "D:\\mingw32\\bin\\g++.exe",
             "args": [
                 "-fexec-charset=GBK",
                 "-g",
