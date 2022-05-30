@@ -9,14 +9,13 @@ public:
         int right = 0;
         int res = nums.size() + 1;
         int winSum = 0;  // 窗口内数字和
-        int winLen = 0;  // 窗口的大小
+
         while (right < nums.size()) {
             winSum += nums[right++];
-            winLen++;
+ 
             while (winSum >= target) {
-                res = min(res, winLen);
+                res = min(res, right - left); // 和满足条件的窗口大小比较
                 winSum -= nums[left++];
-                winLen--;
             }
         }
         return res == nums.size() + 1 ? 0 : res;

@@ -11,6 +11,24 @@ using namespace std;
  */
 
 // @lc code=start
+// 空间复杂度为O(1)
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        // dp保存nums[i]为结尾的最大子数组的和
+        int dp = nums[0];
+        int res = dp;   // 初始值为第一个元素
+
+        for (int i = 1; i < nums.size(); ++i) {
+            dp = max(nums[i], dp + nums[i]);
+            res = max(res, dp);
+        }
+        return res;
+    }
+};
+// @lc code=end
+
+// 空间复杂度为O(n)
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
@@ -25,5 +43,3 @@ public:
         return res;
     }
 };
-// @lc code=end
-
