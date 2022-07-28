@@ -8,6 +8,16 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
+#include <bits/stdc++.h>
+using namespace std;
+
+struct ListNode {
+    int val;
+    ListNode* next;
+    ListNode(int val_, ListNode* next_) : val(val_), next(next_) {}
+};
+
 class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {

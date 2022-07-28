@@ -16,8 +16,12 @@ class Solution
 private:
     /* data */
 public:
-    void buildTree(TreeNode* node, int index, vector<int> nums) {
+    TreeNode* buildTree(int index, vector<int> nums) {
         if (index > nums.size() - 1) return nullptr;
+        TreeNode* newNode = new TreeNode(nums[index]);
+        newNode->left = buildTree(2 * index + 1, nums);
+        newNode->right = buildTree(2 * index + 2, nums);
+        return newNode;
     }
 };
 
@@ -26,6 +30,10 @@ public:
 
 int main() {
     vector<int> nums= {1, 2, 3, 4};
-    
+    TreeNode* head = nullptr;
+    Solution su;
+    head = su.buildTree(0, nums);
+    cout << 1 << endl;
+    return 0;
 
 }

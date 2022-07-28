@@ -45,6 +45,23 @@ public:
 };
 
 // 使用一维数组
+// 最佳解题方案
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        if (s.size() != t.size()) return false;
+        int hashTable[26] = {0};
+        for (auto& ch : s) {
+            hashTable[ch - 'a']++;
+        }
+        for (auto& ch : t) {
+            hashTable[ch - 'a']--;
+            if (hashTable[ch - 'a'] < 0) return false;
+        }
+        return true;
+    }
+};
+
 class Solution {
 public:
     bool isAnagram(string s, string t) {
