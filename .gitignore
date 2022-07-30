@@ -4,3 +4,4 @@ node_modules
 *.exe
 算法竞赛从入门到进阶/*
 *.rar
+.vscode
