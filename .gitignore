@@ -1,4 +1,10 @@
 node_modules
+./.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
 基础知识/*
 算法竞赛入门经典（第2版）lrj紫书.pdf
 *.exe
