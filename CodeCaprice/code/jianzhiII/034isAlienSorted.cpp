@@ -10,5 +10,14 @@ public:
         for (auto& letter : order) {
             hash[letter - 'a'] = ++pos;
         }
+        return false;
     } 
 };
+
+int main() {
+    int a = 0;
+    Solution su;
+    vector<string> word = {"word","string"};
+    su.isAlienSorted(word, "deihuifwf;dcmvnoguihefjowedmc");
+    return 0;
+}
