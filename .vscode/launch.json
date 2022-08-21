@@ -1,7 +1,8 @@
 {
     "version": "0.2.0",
     "configurations": [
-        // mac配置
+
+        // mac配置 mac只支持CodeLLDB，使用c/c++插件的话会出现错误（无法在调试的时候输入）
         {
             "type": "lldb",
             "request": "launch",
