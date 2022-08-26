@@ -3,9 +3,9 @@ using namespace std;
 #define random(a, b) (rand() % (b - a + 1) + a) 
 
 vector<int> partition(vector<int>& nums, int left, int right) {
-    int less = left - 1;
-    int more = right;
-    while (left < more) {
+    int less = left - 1;  // 初始化时，大于区小于区内没有元素
+    int more = right;    
+    while (left < more) { // left没有遍历到大于区
         if (nums[left] > nums[right]) {
             swap(nums[left], nums[--more]); // 当前值与more区域左一个值交换且more区域左移, 当前索引不动
         } else if (nums[left] < nums[right]) {
