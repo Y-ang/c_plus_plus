@@ -1,0 +1,32 @@
+Host *
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials no
+    StrictHostKeyChecking no
+
+# Host 10.37.150.101
+#     GSSAPIAuthentication yes
+#     GSSAPIDelegateCredentials no
+# # 1. 在~/.ssh/config中追加
+Host dev
+    HostName 10.37.150.101
+    User yangjing.28
+
+
+Host cloud
+    Hostname fdbd:dc03:ff:500:b5d6:2647:ec7e:5526
+    User yangjing.28
+
+
+Host 111.229.118.128
+    HostName 111.229.118.128
+    User root
+
+
+
+# Host *
+#     GSSAPIAuthentication yes
+#     GSSAPIDelegateCredentials no
+#     StrictHostKeyChecking no
+# Host cloud
+#     HostName fdbd:dc03:ff:500:b5d6:2647:ec7e:5526
+#     User yangjing.28
