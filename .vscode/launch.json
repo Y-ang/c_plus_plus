@@ -40,19 +40,19 @@
             "preLaunchTask": "C/C++: g++.exe build active file"
         },
         
-        // {
-        //     "name": "C/C++: clang++ build and debug active file",
-        //     "type": "cppdbg",
-        //     "request": "launch",
-        //     "program": "${fileDirname}/${fileBasenameNoExtension}",
-        //     "args": [],
-        //     "stopAtEntry": false,
-        //     "cwd": "${fileDirname}",
-        //     "environment": [],
-        //     // "externalConsole": true,
-        //     "MIMode": "lldb",
+        {
+            "name": "C/C++: clang++ build and debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            // "externalConsole": true,
+            "MIMode": "lldb",
             
-        //     "preLaunchTask": "Build with Clang"
-        // }
+            "preLaunchTask": "Build with Clang"
+        }
     ]
 }

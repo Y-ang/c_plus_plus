@@ -1,7 +1,8 @@
 {
     "tasks": [
         {
-            "type": "cppbuild",
+            "type": "shell",
+            // "type": "lldb",
             "label": "Build with Clang",
             "command": "/usr/bin/clang++",
             "args": [
