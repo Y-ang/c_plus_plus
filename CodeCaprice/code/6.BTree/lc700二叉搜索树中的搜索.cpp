@@ -13,18 +13,18 @@ class Solution {
 public:
     TreeNode* searchBST(TreeNode* root, int val) {
         // DFS
-        // if (!root || root->val == val) return root;
-        // TreeNode* node;
-        // if (root->val > val) node = searchBST(root->left, val);
-        // if (root->val < val) node = searchBST(root->right, val);
-        // return node;
+        if (!root || root->val == val) return root;
+        TreeNode* node;
+        if (root->val > val) node = searchBST(root->left, val);
+        if (root->val < val) node = searchBST(root->right, val);
+        return node;
 
         // BFS
-        TreeNode* cur = root;
-        while (cur) {
-            if (cur->val == val) return cur;
-            else if (cur->val > val) cur = cur->left;
-            else cur = cur->right;
+        // TreeNode* cur = root;
+        while (root) {
+            if (root->val == val) return root;
+            else if (root->val > val) root = root->left;
+            else root = root->right;
         }
         return cur;
     }

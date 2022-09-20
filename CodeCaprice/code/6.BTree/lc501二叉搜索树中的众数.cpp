@@ -23,7 +23,7 @@ struct TreeNode {
 class Solution {
 public:
     int maxCnt = -1;
-    int cnt = 1;
+    int cnt = 0;
     TreeNode* pre = nullptr;
     vector<int> res;
     vector<int> findMode(TreeNode* root) {
@@ -40,7 +40,7 @@ public:
             }
             root = st.top();
             st.pop();
-            if (pre == nullptr) pre = root;
+            if (pre == nullptr) cnt = 1;
             else if (pre->val == root->val) cnt++;
             else if (pre->val != root->val) cnt = 1;
             if (cnt > maxCnt) {
@@ -55,12 +55,15 @@ public:
         }
         return res;
     }
+
     void traverse(TreeNode* node) {
         if (!node) return;
         traverse(node->left);
-        if (pre != nullptr && pre->val == node->val) {
+        if (pre = nullptr)
+            cnt = 1;
+        else (pre->val == node->val) {
             cnt++;
-        } else if (pre != nullptr && pre->val != node->val){
+        } else if (pre->val != node->val){
             cnt = 1;
         }
         pre = node;
