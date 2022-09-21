@@ -14,10 +14,9 @@ public:
     TreeNode* searchBST(TreeNode* root, int val) {
         // DFS
         if (!root || root->val == val) return root;
-        TreeNode* node;
-        if (root->val > val) node = searchBST(root->left, val);
-        if (root->val < val) node = searchBST(root->right, val);
-        return node;
+        if (root->val > val) return searchBST(root->left, val);
+        if (root->val < val) return searchBST(root->right, val);
+        return root;
 
         // BFS
         // TreeNode* cur = root;
