@@ -1,6 +1,54 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
+/*
+遍历字符串 ss，并用变量 preSign 记录每个数字之前的运算符，对于第一个数字，其之前的运算符视为加号。每次遍历到数字末尾时，根据 preSign 来决定计算方式：
+
+加号：将数字压入栈；
+减号：将数字的相反数压入栈；
+乘除号：计算数字与栈顶元素，并将栈顶元素替换为计算结果。
+代码实现中，若读到一个运算符，或者遍历到字符串末尾，即认为是遍历到了数字末尾。处理完该数字后，更新 preSign 为当前遍历的字符。
+
+
+*/
+
+
+class Solution {
+public:
+    int calculate(string s) {
+        vector<int> stk;
+        char preSign = '+';
+        int num = 0;
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            if (isdigit(s[i])) {
+                num = num * 10 + int(s[i] - '0');
+            }
+            if (!isdigit(s[i]) && s[i] != ' ' || i == n - 1) {
+                switch (preSign) {
+                    case '+':
+                        stk.push_back(num);
+                        break;
+                    case '-':
+                        stk.push_back(-num);
+                        break;
+                    case '*':
+                        stk.back() *= num;
+                        break;
+                    default:
+                        stk.back() /= num;
+                }
+                preSign = s[i];
+                num = 0;
+            }
+        }
+        return accumulate(stk.begin(), stk.end(), 0);
+    }
+};
+
+
+
 class Solution {
 public:
     int calculate(string s) {
