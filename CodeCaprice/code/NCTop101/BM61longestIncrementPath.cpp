@@ -52,7 +52,7 @@ public:
      * @param matrix int整型vector<vector<>> 描述矩阵的每个数
      * @return int整型
      */
-    int dirs[4][2] = {{-1, 0}, {1,0}, {0, -1}, {0, 1}};
+    const int dirs[4][2] = {{-1, 0}, {1,0}, {0, -1}, {0, 1}};
     int solve(vector<vector<int> >& matrix) {
         vector<vector<int>> memo(matrix.size(), vector<int>(matrix[0].size(), 0));
         int maxLen = 0;
