@@ -2,16 +2,16 @@
     "version": "0.2.0",
     "configurations": [
 
-        // mac配置 mac只支持CodeLLDB，使用c/c++插件的话会出现错误（无法在调试的时候输入）
-        {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Clang++ Launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",
-            "args": [],
-            "cwd": "${fileDirname}",
-            "preLaunchTask": "Build with Clang"
-        },
+        // // mac配置 mac只支持CodeLLDB，使用c/c++插件的话会出现错误（无法在调试的时候输入）
+        // {
+        //     "type": "lldb",
+        //     "request": "launch",
+        //     "name": "Clang++ Launch",
+        //     "program": "${fileDirname}/${fileBasenameNoExtension}",
+        //     "args": [],
+        //     "cwd": "${fileDirname}",
+        //     "preLaunchTask": "Build with Clang"
+        // },
         // win10配置
         {
             "name": "g++.exe - Build and debug active file",
