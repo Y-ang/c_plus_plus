@@ -1,7 +1,6 @@
 {
     "version": "0.2.0",
     "configurations": [
-
         // // mac配置 mac只支持CodeLLDB，使用c/c++插件的话会出现错误（无法在调试的时候输入）
         // {
         //     "type": "lldb",
@@ -17,7 +16,7 @@
             "name": "g++.exe - Build and debug active file",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "program": "${fileDirname}\\a.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
@@ -25,6 +24,7 @@
             "externalConsole": false,
             "MIMode": "gdb",
             "miDebuggerPath": "D:\\mingw64\\bin\\gdb.exe",
+            // "console": "integratedTerminal",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -40,19 +40,19 @@
             "preLaunchTask": "C/C++: g++.exe build active file"
         },
         
-        {
-            "name": "C/C++: clang++ build and debug active file",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
-            // "externalConsole": true,
-            "MIMode": "lldb",
+        // {
+        //     "name": "C/C++: clang++ build and debug active file",
+        //     "type": "cppdbg",
+        //     "request": "launch",
+        //     "program": "${fileDirname}/${fileBasenameNoExtension}",
+        //     "args": [],
+        //     "stopAtEntry": false,
+        //     "cwd": "${fileDirname}",
+        //     "environment": [],
+        //     // "externalConsole": true,
+        //     "MIMode": "lldb",
             
-            "preLaunchTask": "Build with Clang"
-        }
+        //     "preLaunchTask": "Build with Clang"
+        // }
     ]
 }

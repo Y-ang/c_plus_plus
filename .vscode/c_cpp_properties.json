@@ -1,29 +1,15 @@
 {
     "configurations": [
-        // {
-        //     "name": "Mac",
-        //     "includePath": [
-        //         "${workspaceFolder}/**"
-        //     ],
-        //     "defines": [],
-        //     "macFrameworkPath": [
-        //         "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
-        //     ],
-        //     "compilerPath": "/usr/bin/clang++",
-        //     "cStandard": "c11",
-        //     "cppStandard": "c++17",
-        //     "intelliSenseMode": "macos-clang-x64"
-        // },
         {
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++",
-                "D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32",
-                "D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward",
-                "D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include",
-                "D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed",
-                "D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"
+                "D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/**",
+                "D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32/**",
+                "D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward/**",
+                "D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/**",
+                "D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed/**",
+                "D:/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include/**"
             ],
             "defines": [
                 "_DEBUG",
@@ -33,7 +19,8 @@
             "compilerPath": "D:\\mingw32\\bin\\gcc.exe",
             "cStandard": "c17",
             "cppStandard": "gnu++14",
-            "intelliSenseMode": "windows-gcc-x86"
+            "intelliSenseMode": "windows-gcc-x86",
+            "configurationProvider": "ms-vscode.makefile-tools"
         }
     ],
     "version": 4
