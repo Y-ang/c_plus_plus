@@ -19,12 +19,14 @@ public:
         end->pre = front;
     }
     
+    // 从链表中删除节点
     Node* removeNode (Node* node) {
         node->pre->next = node->next;
         node->next->pre = node->pre;
         return node;
     }
 
+    // 向链表末尾添加节点
     void insertNode(Node* node) {
         node->next = end;
         node->pre = end->pre;
@@ -43,20 +45,20 @@ public:
     }
     
     void put(int key, int value) {
-        if (hash_table.count(key)) {
+        if (hash_table.count(key)) {     // 如果链表中已有该键，则更新对应的值，并讲该节点放到链表末尾
             Node* node = hash_table[key];
             node->value = value;
             node = removeNode(node);
             insertNode(node);
             hash_table[key] = node;
         } else {
-            if (hash_table.size() == cap) {
+            if (hash_table.size() == cap) {   // 如果链表的长度达到上限，删除队头缓存（节点和哈希表都要删除）
                 int key = front->next->key;
                 hash_table.erase(key);
                 Node* node = removeNode(front->next);
                 delete node;
             }
-            Node* node = new Node();
+            Node* node = new Node();  // 添加新页面
             node->value = value;
             node->key = key;
             insertNode(node);
