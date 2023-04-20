@@ -30,8 +30,9 @@ public:
             if (!node->children.count(ch)) {   // Trie中没有该字符，添加字符
                 node->children[ch] = new TrieNode();
             }
-            node->is_word = true;   // 末尾字符设置为true
+            node = node->children[ch]; // 移动到下一个字符节点
         }
+        node->is_word = true;   // 末尾字符设置为true
     }
     
     /** Returns if the word is in the trie. */
@@ -68,7 +69,7 @@ private:
 */
 
 int main() {
-    Trie* obj = new Trie;
+    Trie* obj = new Trie();
     string word = "apple";
     obj->insert(word);
     cout << obj->search(word) << endl;
