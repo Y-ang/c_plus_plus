@@ -43,6 +43,7 @@ private:
             if (!node->children.count(ch)) {
                 return nullptr;
             }
+            node = node->children[ch];  // 进入子节点，开始下一次判断
         }
         return node;
     }
@@ -52,6 +53,7 @@ int main() {
     Trie* obj = new Trie();
     string word = "apple";
     obj->insert(word);
+    cout << obj->search("apple") << endl;
     cout << obj->search("app") << endl;
     cout << obj->startsWith("app") << endl;
     return 0;
